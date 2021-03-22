@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/13 16:56:02 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/03/23 01:40:23 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/03/23 01:46:57 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -126,6 +126,11 @@ $(NAME):			$(LIBFT_NAME) $(OBJS)
 						@echo "\n\n$(_GREEN)Library '$(NAME)' compiled.\n$(_END)"
 						@echo "Done !"
 
+$(LIBFT_NAME):		FORCE
+						@$(MAKE) -C $(LIBFT_DIR)
+
+FORCE:
+
 # Compiled Source Files #
 $(OBJS):			$(OBJS_DIR)
 
@@ -138,11 +143,6 @@ $(OBJS_DIR):
 						@mkdir -p $(OBJS_DIR)$(CONVERT_DIR)
 						@mkdir -p $(OBJS_DIR)$(PARSE_DIR)
 						@mkdir -p $(OBJS_DIR)$(UTILS_DIR)
-
-$(LIBFT_NAME):		FORCE
-						@$(MAKE) -C $(LIBFT_DIR)
-
-FORCE:
 
 # Phony #
 .PHONY:				all clean fclean re FORCE
