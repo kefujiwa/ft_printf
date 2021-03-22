@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/13 16:56:02 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/03/14 21:32:51 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/03/23 01:40:23 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,7 +107,7 @@ all:				$(NAME)
 
 clean:
 					@$(MAKE) clean -C $(LIBFT_DIR)
-					@echo "$(_RED)Deleting objects...\n$(_END)"
+					@echo "$(_RED)Cleaning libftprintf objects...\n$(_END)"
 					@$(RM) $(OBJS_DIR)
 
 fclean:				
