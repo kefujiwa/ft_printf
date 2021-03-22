@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/13 16:56:02 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/03/23 01:46:57 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/03/23 02:04:48 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 ## COLORS ##
 
 # Formats #
-_END				= \x1b[0m
+_RESET				= \x1b[0m
 _BOLD				= \x1b[1m
 _DIM				= \x1b[2m
 _UNDER				= \x1b[4m
@@ -107,23 +107,23 @@ all:				$(NAME)
 
 clean:
 					@$(MAKE) clean -C $(LIBFT_DIR)
-					@echo "$(_RED)Cleaning libftprintf objects...\n$(_END)"
+					@echo "$(_RED)Cleaning libftprintf objects...\n$(_RESET)"
 					@$(RM) $(OBJS_DIR)
 
 fclean:				
 					@$(MAKE) fclean -C $(LIBFT_DIR)
-					@echo "$(_RED)Cleaning libftprintf objects...\n$(_END)"
+					@echo "$(_RED)Cleaning libftprintf objects...\n$(_RESET)"
 					@$(RM) $(OBJS_DIR)
-					@echo "$(_RED)Deleting library '$(NAME)'...\n$(_END)"
+					@echo "$(_RED)Deleting library '$(NAME)'...\n$(_RESET)"
 					@$(RM) $(NAME)
 
 re:					fclean all
 
-# Variables Rules #
+# Variable Rules #
 $(NAME):			$(LIBFT_NAME) $(OBJS)
 						@cp $(LIBFT_NAME) $(NAME)
 						@$(AR) $(NAME) $(OBJS)
-						@echo "\n\n$(_GREEN)Library '$(NAME)' compiled.\n$(_END)"
+						@echo "\n\n$(_GREEN)Library '$(NAME)' compiled.\n$(_RESET)"
 						@echo "Done !"
 
 $(LIBFT_NAME):		FORCE
@@ -135,7 +135,7 @@ FORCE:
 $(OBJS):			$(OBJS_DIR)
 
 $(OBJS_DIR)%.o: 	$(SRCS_DIR)%.c
-						@printf "$(_YELLOW)Generating Libftprintf objects... %-33.33s\r$(_END)" $@
+						@printf "$(_YELLOW)Generating Libftprintf objects... %-33.33s\r$(_RESET)" $@
 						@$(CC) $(CFLAGS) -I $(HEADER_DIR) -c $< -o $@
 
 $(OBJS_DIR):
