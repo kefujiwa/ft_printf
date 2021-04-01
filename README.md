@@ -4,7 +4,7 @@ ft_printf is a remake of the printf program.
 
 ## Getting Started
 
-```
+```bash
 git clone https://github.com/kefujiwa/ft_printf.git
 cd ft_printf
 make all
