@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/13 16:56:02 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/03/23 02:04:48 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/06/11 17:38:36 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -120,20 +120,15 @@ fclean:
 re:					fclean all
 
 # Variable Rules #
-$(NAME):			$(LIBFT_NAME) $(OBJS)
+$(NAME):			$(LIBFT_NAME) $(OBJS_DIR) $(OBJS)
 						@cp $(LIBFT_NAME) $(NAME)
 						@$(AR) $(NAME) $(OBJS)
 						@echo "\n\n$(_GREEN)Library '$(NAME)' compiled.\n$(_RESET)"
-						@echo "Done !"
 
-$(LIBFT_NAME):		FORCE
+$(LIBFT_NAME):
 						@$(MAKE) -C $(LIBFT_DIR)
 
-FORCE:
-
 # Compiled Source Files #
-$(OBJS):			$(OBJS_DIR)
-
 $(OBJS_DIR)%.o: 	$(SRCS_DIR)%.c
 						@printf "$(_YELLOW)Generating Libftprintf objects... %-33.33s\r$(_RESET)" $@
 						@$(CC) $(CFLAGS) -I $(HEADER_DIR) -c $< -o $@
